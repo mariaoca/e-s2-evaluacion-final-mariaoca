@@ -17,6 +17,7 @@ function takeName(e) {
 
                 const list = document.createElement('li');
                 list.classList.add('list_series');
+                list.setAttribute('id', data[i].show.id);
 
 
                 const img = document.createElement('img');
@@ -27,8 +28,6 @@ function takeName(e) {
                 title.classList.add('title_series');
                 title.appendChild(nameSeries);
 
-             
-
                 if ( data[i].show.image=== null) {
                     img.src = `https://via.placeholder.com/210x295/cccccc/666666/?text=TV`;
                 } else {
@@ -37,14 +36,21 @@ function takeName(e) {
 
                 list.appendChild(img);
                 list.appendChild(title);
-
+                if(localStorage.getItem(list.id) == 'favorito'){
+                    list.classList.toggle('favorite_item');
+                }
                 dates.appendChild(list);
                 list.addEventListener('click',addFavorite);
             }
         });
 }
 function addFavorite(e) {
-    const seriesList = e.currentTarget;
-    seriesList.classList.toggle('favorite_item');
+    const seriesFav = e.currentTarget;
+    if(localStorage.getItem(seriesFav.id) == 'favorito'){
+        localStorage.removeItem(seriesFav.id);
+    } else{
+    localStorage.setItem(seriesFav.id, 'favorito')
+    }
+    seriesFav.classList.toggle('favorite_item');
 }
 btnSearch.addEventListener('click', takeName);        

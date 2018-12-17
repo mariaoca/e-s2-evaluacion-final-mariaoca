@@ -2,11 +2,14 @@
 
 const search = document.querySelector('#search');
 const btnSearch = document.querySelector('.btn_search');
-const dates = document.querySelector('.dates');
+const dates = document.querySelector('.dates_list');
 const apiUrl = `http://api.tvmaze.com/search/shows?q=`;
-const seriesList = document.querySelector('.list_series');
-
+const seriesList = document.querySelectorAll('.list_series');
+//Recoger texto de búsqueda en el input
+//Buscar en la API la búsqueda
+//mostrar resultados con foto y título
 function takeName() {
+    // dates.innerHTML = '';
     const name = search.value;
     fetch(apiUrl + name)
         .then(response => response.json())
@@ -34,9 +37,7 @@ function takeName() {
 }
 btnSearch.addEventListener('click', takeName);
 
-//Recoger texto de búsqueda en el input
-//Buscar en la API la búsqueda
-//mostrar resultados con foto y título
+
 //marcar como favorito
 //guardar en LocalStorage los favoritos
 

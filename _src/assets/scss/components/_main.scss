@@ -1,8 +1,11 @@
 .dates_list{
     list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
 }
 .favorite_item {
     background: yellow;
-    color:white;
-    border: 2x solid red;
+    color: black;
 }
+

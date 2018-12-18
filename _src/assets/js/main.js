@@ -1,5 +1,4 @@
 'use strict';
-
 const search = document.querySelector('#search');
 const btnSearch = document.querySelector('.btn_search');
 const dates = document.querySelector('.dates_list');

@@ -1,12 +1,11 @@
 'use strict';
-
+let saveSeries = [];
 const search = document.querySelector('#search');
 const btnSearch = document.querySelector('.btn_search');
 const dates = document.querySelector('.dates_list');
 const apiUrl = `http://api.tvmaze.com/search/shows?q=`;
 
 function takeName(e) {
-    e.preventDefault()
     dates.innerHTML = '';
     const name = search.value;
     console.log(name, 'hola');
@@ -46,11 +45,19 @@ function takeName(e) {
 }
 function addFavorite(e) {
     const seriesFav = e.currentTarget;
+    //const savedFavoritos = JSON.parse(localStorage.getItem('favoritos'));
+    // savedFavoritos.indexOf()
     if(localStorage.getItem(seriesFav.id) == 'favorito'){
         localStorage.removeItem(seriesFav.id);
     } else{
-    localStorage.setItem(seriesFav.id, 'favorito')
+    localStorage.setItem('favorito',JSON.stringify(saveSeries));
     }
     seriesFav.classList.toggle('favorite_item');
 }
-btnSearch.addEventListener('click', takeName);        
+btnSearch.addEventListener('click', takeName);  
+
+//const contentId = document.createTextNode(`${data[i].show.id}`);
+//        let localSeries = JSON.parse(localStorage.getItem('series'));
+// if (localSeries.includes(parseInt(data[i].show.id))) {
+    //listElement.classList.add('selected-serie');
+

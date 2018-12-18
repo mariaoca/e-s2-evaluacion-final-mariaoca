@@ -5,10 +5,8 @@ const dates = document.querySelector('.dates_list');
 const apiUrl = `http://api.tvmaze.com/search/shows?q=`;
 
 function takeName(e) {
-    e.preventDefault()
     dates.innerHTML = '';
     const name = search.value;
-    console.log(name, 'hola');
     fetch(apiUrl + name)
         .then(response => response.json())
         .then(data => {

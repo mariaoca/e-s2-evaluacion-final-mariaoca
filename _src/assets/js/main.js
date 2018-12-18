@@ -1,5 +1,5 @@
 'use strict';
-let saveSeries = [];
+let arrayFavorito = [];
 const search = document.querySelector('#search');
 const btnSearch = document.querySelector('.btn_search');
 const dates = document.querySelector('.dates_list');
@@ -45,19 +45,18 @@ function takeName(e) {
 }
 function addFavorite(e) {
     const seriesFav = e.currentTarget;
-    //const savedFavoritos = JSON.parse(localStorage.getItem('favoritos'));
-    // savedFavoritos.indexOf()
+    const id = document.createTextNode(`${data[i].show.id}`);
+    const savedFavoritos = JSON.parse(localStorage.getItem('favoritos'));
+     savedFavoritos.indexOf(id);
     if(localStorage.getItem(seriesFav.id) == 'favorito'){
         localStorage.removeItem(seriesFav.id);
     } else{
-    localStorage.setItem('favorito',JSON.stringify(saveSeries));
+    localStorage.setItem('favorito',JSON.stringify(arrayFavorito));
     }
     seriesFav.classList.toggle('favorite_item');
 }
 btnSearch.addEventListener('click', takeName);  
 
-//const contentId = document.createTextNode(`${data[i].show.id}`);
-//        let localSeries = JSON.parse(localStorage.getItem('series'));
-// if (localSeries.includes(parseInt(data[i].show.id))) {
-    //listElement.classList.add('selected-serie');
+
+
 

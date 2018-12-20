@@ -3,9 +3,14 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+
 }
 .favorite_item {
     background: yellow;
     color: black;
+}
+
+.hidden {
+    display:none;
 }
 
